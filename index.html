@@ -1,661 +1,1389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Professional Tax Services – Income Tax Filing, GST Registration, Company Registration & more. Expert CAs at your service. Starting ₹499." />
-  <meta name="keywords" content="income tax filing, GST registration, GST return filing, company registration, tax notice reply, CA services India" />
-  <title>TaxPro India – Expert CA & Tax Services</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="TaxPro India – Expert CA services. Income Tax Filing, GST Registration, Company Registration & more. Starting ₹499."/>
+<title>TaxPro India – Expert CA & Tax Services</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<!-- Fonts: Bricolage Grotesque (headings) + Outfit (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
-  <style>
-    /* ===== CSS VARIABLES ===== */
-    :root {
-      --teal:       #0d5c4a;
-      --teal-mid:   #1a7a62;
-      --teal-light: #2a9d80;
-      --teal-pale:  #e8f5f1;
-      --gold:       #c9a84c;
-      --gold-light: #e8c97a;
-      --dark:       #0a1e18;
-      --charcoal:   #1c2b26;
-      --body-text:  #3a4a44;
-      --muted:      #6b8079;
-      --white:      #ffffff;
-      --off-white:  #f7fbf9;
-      --border:     #d1e8df;
-      --shadow:     0 4px 24px rgba(13,92,74,.10);
-      --shadow-lg:  0 12px 48px rgba(13,92,74,.16);
-      --radius:     14px;
-      --radius-lg:  22px;
-    }
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --bg:          #f0eeff;
+  --bg-alt:      #f9f8ff;
+  --card:        #ffffff;
+  --purple:      #5521c6;
+  --purple-mid:  #7c3aed;
+  --purple-lite: #9d6bf5;
+  --purple-pale: #ede9ff;
+  --orange:      #f04e23;
+  --orange2:     #ff7043;
+  --green:       #16a34a;
+  --dark:        #0f0a24;
+  --dark2:       #1a1242;
+  --text:        #2d245a;
+  --muted:       #7469a0;
+  --border:      rgba(85,33,198,.10);
+  --border-mid:  rgba(85,33,198,.20);
+  --sd:          0 2px 16px rgba(85,33,198,.08);
+  --sd-md:       0 8px 32px rgba(85,33,198,.14);
+  --sd-lg:       0 20px 56px rgba(85,33,198,.18);
+  --r:           12px;
+  --r2:          20px;
+  --r3:          28px;
+}
 
-    /* ===== RESET & BASE ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      color: var(--body-text);
-      background: var(--white);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
+/* ═══════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ===== UTILITY ===== */
-    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-    .section-label {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 12px; font-weight: 600; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--teal-light);
-      margin-bottom: 12px;
-    }
-    .section-label::before {
-      content: ''; width: 28px; height: 2px;
-      background: var(--gold); border-radius: 2px;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 700; color: var(--dark);
-      line-height: 1.2;
-    }
-    .section-title span { color: var(--teal-mid); }
-    .section-sub {
-      font-size: 16px; color: var(--muted);
-      line-height: 1.7; max-width: 560px;
-      margin-top: 12px;
-    }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: 8px; padding: 14px 28px; border-radius: 50px;
-      font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600;
-      cursor: pointer; border: none; transition: all .25s ease;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: var(--teal); color: var(--white);
-      box-shadow: 0 4px 16px rgba(13,92,74,.35);
-    }
-    .btn-primary:hover {
-      background: var(--teal-mid); transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(13,92,74,.40);
-    }
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: var(--dark); font-weight: 700;
-      box-shadow: 0 4px 16px rgba(201,168,76,.35);
-    }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,.45); }
-    .btn-outline {
-      background: transparent; color: var(--teal);
-      border: 2px solid var(--teal);
-    }
-    .btn-outline:hover {
-      background: var(--teal); color: var(--white);
-    }
-    .check-icon {
-      width: 20px; height: 20px; border-radius: 50%;
-      background: var(--teal); display: inline-flex;
-      align-items: center; justify-content: center;
-      flex-shrink: 0; margin-top: 2px;
-    }
-    .check-icon svg { width: 11px; height: 11px; }
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  /* prevent horizontal scroll */
+  overflow-x: hidden;
+}
 
-    /* ===== TOPBAR ===== */
-    .topbar {
-      background: var(--dark);
-      color: rgba(255,255,255,.75);
-      font-size: 13px; padding: 8px 0;
-    }
-    .topbar .container {
-      display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: 8px;
-    }
-    .topbar a { color: var(--gold-light); }
-    .topbar-links { display: flex; gap: 20px; align-items: center; }
+body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* prevent stretching on wide screens */
+  min-width: 320px;
+}
 
-    /* ===== NAVBAR ===== */
-    .navbar {
-      position: sticky; top: 0; z-index: 999;
-      background: rgba(255,255,255,.96);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      transition: box-shadow .3s;
-    }
-    .navbar.scrolled { box-shadow: var(--shadow); }
-    .nav-inner {
-      display: flex; align-items: center;
-      justify-content: space-between; padding: 16px 24px;
-      max-width: 1180px; margin: 0 auto;
-    }
-    .logo {
-      display: flex; align-items: center; gap: 10px;
-    }
-    .logo-icon {
-      width: 42px; height: 42px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--teal), var(--teal-light));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-    }
-    .logo-text { font-family: 'Playfair Display', serif; }
-    .logo-text strong {
-      display: block; font-size: 20px; font-weight: 700;
-      color: var(--dark); line-height: 1;
-    }
-    .logo-text span {
-      font-size: 11px; font-weight: 400;
-      color: var(--muted); letter-spacing: .06em;
-    }
-    .nav-links {
-      display: flex; align-items: center; gap: 32px;
-    }
-    .nav-links a {
-      font-size: 14px; font-weight: 500; color: var(--body-text);
-      transition: color .2s; position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 2px; background: var(--teal);
-      transition: width .25s;
-    }
-    .nav-links a:hover { color: var(--teal); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-cta { display: flex; align-items: center; gap: 12px; }
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; padding: 4px;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--dark); border-radius: 2px;
-      transition: all .3s;
-    }
-    .mobile-menu {
-      display: none; flex-direction: column;
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      padding: 20px 24px; gap: 16px;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 15px; font-weight: 500; color: var(--body-text); }
+a  { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img, svg { display: block; max-width: 100%; }
+button { font-family: inherit; }
 
-    /* ===== HERO ===== */
-    .hero {
-      background: linear-gradient(135deg, var(--dark) 0%, var(--charcoal) 50%, #112a22 100%);
-      position: relative; overflow: hidden;
-      padding: 96px 0 80px;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(26,122,98,.25) 0%, transparent 65%),
-        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201,168,76,.08) 0%, transparent 60%);
-    }
-    .hero-grid-lines {
-      position: absolute; inset: 0; opacity: .04;
-      background-image:
-        linear-gradient(var(--white) 1px, transparent 1px),
-        linear-gradient(90deg, var(--white) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .hero-inner {
-      position: relative; z-index: 2;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; align-items: center;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.3);
-      color: var(--gold-light); font-size: 13px; font-weight: 500;
-      padding: 7px 16px; border-radius: 50px; margin-bottom: 24px;
-    }
-    .hero-badge::before {
-      content: ''; width: 8px; height: 8px;
-      background: var(--gold); border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)}
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(36px, 5vw, 58px);
-      font-weight: 900; color: var(--white);
-      line-height: 1.12; margin-bottom: 20px;
-    }
-    .hero h1 em {
-      font-style: normal;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: 17px; color: rgba(255,255,255,.7);
-      line-height: 1.75; margin-bottom: 36px;
-    }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
-    .hero-stats {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 2px; border: 1px solid rgba(255,255,255,.1);
-      border-radius: var(--radius); overflow: hidden;
-    }
-    .stat-item {
-      background: rgba(255,255,255,.05); padding: 16px 12px; text-align: center;
-    }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px; font-weight: 700; color: var(--gold-light);
-      line-height: 1;
-    }
-    .stat-lbl { font-size: 12px; color: rgba(255,255,255,.55); margin-top: 4px; }
+/* ═══════════════════════════════════════════
+   LAYOUT UTILITIES
+═══════════════════════════════════════════ */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-    /* Hero visual */
-    .hero-visual { position: relative; }
-    .hero-card {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(12px);
-      border-radius: var(--radius-lg); padding: 28px;
-    }
-    .hero-card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px; color: var(--white);
-      margin-bottom: 20px; display: flex;
-      align-items: center; justify-content: space-between;
-    }
-    .hero-service-list { display: flex; flex-direction: column; gap: 14px; }
-    .hero-service-item {
-      display: flex; align-items: center; gap: 14px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 10px; padding: 14px 16px;
-      transition: all .3s;
-    }
-    .hero-service-item:hover {
-      background: rgba(255,255,255,.1);
-      border-color: rgba(201,168,76,.3);
-      transform: translateX(4px);
-    }
-    .hero-service-icon {
-      width: 40px; height: 40px; border-radius: 8px;
-      background: linear-gradient(135deg,var(--teal),var(--teal-light));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; flex-shrink: 0;
-    }
-    .hero-service-info strong { display: block; color: var(--white); font-size: 14px; }
-    .hero-service-info span { color: var(--gold-light); font-size: 13px; }
-    .floating-badge {
-      position: absolute; top: -18px; right: -18px;
-      background: linear-gradient(135deg,var(--gold),var(--gold-light));
-      color: var(--dark); border-radius: 12px; padding: 12px 18px;
-      font-size: 13px; font-weight: 700; box-shadow: var(--shadow-lg);
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+/* Headings — Bricolage Grotesque, carefully sized */
+.h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--dark);
+}
+.h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+}
+.h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--dark);
+}
 
-    /* ===== TRUST BAR ===== */
-    .trust-bar {
-      background: var(--teal-pale); border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border); padding: 22px 0;
-    }
-    .trust-items {
-      display: flex; align-items: center; justify-content: center;
-      flex-wrap: wrap; gap: 36px;
-    }
-    .trust-item {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 14px; font-weight: 600; color: var(--teal);
-    }
-    .trust-item svg { width: 22px; height: 22px; color: var(--teal-mid); }
+/* Responsive heading sizes */
+@media (max-width: 768px) {
+  .h1 { font-size: 34px; }
+  .h2 { font-size: 26px; }
+}
+@media (max-width: 480px) {
+  .h1 { font-size: 28px; }
+  .h2 { font-size: 22px; }
+}
 
-    /* ===== SERVICES ===== */
-    .services { padding: 100px 0; background: var(--off-white); }
-    .services-header { text-align: center; margin-bottom: 60px; }
-    .services-header .section-label { justify-content: center; }
-    .services-header .section-sub { margin: 0 auto; text-align: center; }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 28px;
-    }
-    .service-card {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 32px 28px;
-      position: relative; transition: all .3s ease;
-      display: flex; flex-direction: column;
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--teal-light);
-    }
-    .service-card.popular {
-      border: 2px solid var(--teal);
-      box-shadow: 0 8px 32px rgba(13,92,74,.15);
-    }
-    .card-badge {
-      position: absolute; top: 20px; right: 20px;
-      background: var(--teal); color: var(--white);
-      font-size: 11px; font-weight: 700; letter-spacing: .04em;
-      padding: 5px 12px; border-radius: 50px;
-    }
-    .card-badge.gold { background: linear-gradient(135deg,var(--gold),var(--gold-light)); color: var(--dark); }
-    .card-badge.urgent { background: #e05a35; }
-    .card-badge.startup { background: #7c3aed; }
-    .service-icon {
-      width: 52px; height: 52px; border-radius: 12px;
-      background: var(--teal-pale); display: flex;
-      align-items: center; justify-content: center;
-      font-size: 24px; margin-bottom: 16px;
-    }
-    .service-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px; font-weight: 700; color: var(--dark);
-      line-height: 1.2; margin-bottom: 8px; padding-right: 80px;
-    }
-    .service-timing {
-      font-size: 13px; color: var(--muted); margin-bottom: 20px;
-      padding-bottom: 20px; border-bottom: 1px solid var(--border);
-    }
-    .service-price {
-      display: flex; align-items: baseline; gap: 6px;
-      margin-bottom: 6px;
-    }
-    .price-main {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px; font-weight: 900; color: var(--dark);
-    }
-    .price-suffix { font-size: 14px; color: var(--muted); }
-    .features-list { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; flex: 1; }
-    .feature-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.5; }
-    .card-cta {
-      width: 100%; padding: 15px; border-radius: 50px;
-      background: var(--teal); color: var(--white);
-      font-size: 15px; font-weight: 600; border: none;
-      cursor: pointer; transition: all .25s; margin-top: 8px;
-    }
-    .card-cta:hover { background: var(--teal-mid); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(13,92,74,.3); }
+.accent        { color: var(--purple-mid); font-style: italic; }
+.accent-orange { color: var(--orange); }
 
-    /* ===== WHY US ===== */
-    .why-us { padding: 100px 0; background: var(--white); }
-    .why-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
-    }
-    .why-visual {
-      position: relative;
-    }
-    .why-big-card {
-      background: linear-gradient(135deg, var(--dark), var(--charcoal));
-      border-radius: var(--radius-lg); padding: 40px; color: var(--white);
-    }
-    .why-big-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px; margin-bottom: 24px;
-    }
-    .why-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .metric-box {
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
-      border-radius: 12px; padding: 20px; text-align: center;
-    }
-    .metric-val {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px; font-weight: 900; color: var(--gold-light);
-    }
-    .metric-lbl { font-size: 12px; color: rgba(255,255,255,.6); margin-top: 4px; }
-    .why-mini-badge {
-      position: absolute; bottom: -20px; right: -20px;
-      background: var(--gold); color: var(--dark);
-      border-radius: 12px; padding: 16px 20px;
-      font-weight: 700; font-size: 13px;
-      box-shadow: var(--shadow-lg);
-    }
-    .reasons { display: flex; flex-direction: column; gap: 24px; }
-    .reason-item {
-      display: flex; gap: 18px; align-items: flex-start;
-      padding: 20px; border-radius: var(--radius);
-      border: 1px solid var(--border);
-      transition: all .3s;
-    }
-    .reason-item:hover {
-      border-color: var(--teal-light);
-      background: var(--teal-pale);
-      transform: translateX(6px);
-    }
-    .reason-num {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--teal); color: var(--white);
-      font-family: 'Playfair Display', serif;
-      font-size: 18px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .reason-title { font-weight: 600; color: var(--dark); margin-bottom: 4px; }
-    .reason-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.lead {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 520px;
+}
 
-    /* ===== PROCESS ===== */
-    .process { padding: 100px 0; background: var(--dark); }
-    .process-header { text-align: center; margin-bottom: 60px; }
-    .process-header .section-label { justify-content: center; }
-    .process-header .section-title { color: var(--white); }
-    .process-header .section-sub { color: rgba(255,255,255,.6); margin: 0 auto; text-align: center; }
-    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; position: relative; }
-    .steps-grid::before {
-      content: '';
-      position: absolute; top: 32px; left: 12.5%; right: 12.5%;
-      height: 2px; background: linear-gradient(90deg,var(--teal-light),var(--gold));
-    }
-    .step-item { text-align: center; position: relative; }
-    .step-circle {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--teal), var(--teal-light));
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-      font-family: 'Playfair Display', serif;
-      font-size: 22px; font-weight: 700; color: var(--white);
-      position: relative; z-index: 1;
-      border: 3px solid var(--dark);
-      box-shadow: 0 0 0 2px var(--teal-light);
-    }
-    .step-title { font-weight: 600; color: var(--white); margin-bottom: 8px; font-size: 16px; }
-    .step-desc { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; }
+/* Section spacing */
+.section { padding: 88px 0; }
 
-    /* ===== TESTIMONIALS ===== */
-    .testimonials { padding: 100px 0; background: var(--teal-pale); }
-    .testi-header { text-align: center; margin-bottom: 60px; }
-    .testi-header .section-label { justify-content: center; }
-    .testi-header .section-sub { margin: 0 auto; text-align: center; }
-    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
-    .testi-card {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 28px;
-      transition: all .3s;
-    }
-    .testi-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
-    .stars { color: var(--gold); font-size: 18px; margin-bottom: 16px; letter-spacing: 2px; }
-    .testi-text { font-size: 15px; line-height: 1.7; color: var(--body-text); margin-bottom: 20px; font-style: italic; }
-    .testi-author { display: flex; align-items: center; gap: 12px; }
-    .author-avatar {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: linear-gradient(135deg,var(--teal),var(--teal-light));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 18px; color: var(--white); font-weight: 700;
-    }
-    .author-name { font-weight: 600; color: var(--dark); font-size: 15px; }
-    .author-role { font-size: 13px; color: var(--muted); }
+/* Centered section headers */
+.sec-head       { text-align: center; }
+.sec-head .lead { margin: 12px auto 0; text-align: center; }
 
-    /* ===== FAQ ===== */
-    .faq { padding: 100px 0; background: var(--white); }
-    .faq-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
-    .faq-items { display: flex; flex-direction: column; gap: 12px; }
-    .faq-item {
-      border: 1px solid var(--border); border-radius: var(--radius);
-      overflow: hidden; transition: border-color .25s;
-    }
-    .faq-item.open { border-color: var(--teal-light); }
-    .faq-question {
-      display: flex; justify-content: space-between;
-      align-items: center; padding: 18px 20px;
-      cursor: pointer; font-weight: 600; font-size: 15px;
-      color: var(--dark); gap: 12px;
-    }
-    .faq-icon {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: var(--teal-pale); display: flex;
-      align-items: center; justify-content: center;
-      flex-shrink: 0; transition: all .3s; color: var(--teal);
-      font-size: 18px; line-height: 1;
-    }
-    .faq-item.open .faq-icon { background: var(--teal); color: var(--white); transform: rotate(45deg); }
-    .faq-answer {
-      max-height: 0; overflow: hidden;
-      transition: max-height .35s ease, padding .3s;
-      font-size: 14px; color: var(--muted); line-height: 1.75;
-    }
-    .faq-answer.open { max-height: 300px; padding: 0 20px 18px; }
+/* Label pill */
+.label-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  background: var(--purple-pale);
+  color: var(--purple);
+  border: 1px solid var(--border-mid);
+  margin-bottom: 14px;
+}
+.label-pill::before { content: '✦'; font-size: 9px; }
 
-    /* ===== CTA ===== */
-    .cta-section {
-      padding: 100px 0;
-      background: linear-gradient(135deg, var(--dark), var(--charcoal));
-      position: relative; overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 100% at 50% 100%, rgba(26,122,98,.3) 0%, transparent 70%);
-    }
-    .cta-inner { position: relative; z-index: 2; text-align: center; }
-    .cta-inner h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px,4vw,48px); font-weight: 900;
-      color: var(--white); margin-bottom: 16px; line-height: 1.2;
-    }
-    .cta-inner h2 em {
-      font-style: normal;
-      background: linear-gradient(135deg,var(--gold),var(--gold-light));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .cta-sub { color: rgba(255,255,255,.65); font-size: 17px; margin-bottom: 40px; }
-    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .contact-strip {
-      display: flex; justify-content: center; gap: 40px;
-      flex-wrap: wrap; margin-top: 48px;
-    }
-    .contact-item {
-      display: flex; align-items: center; gap: 12px;
-      color: rgba(255,255,255,.7); font-size: 15px;
-    }
-    .contact-item strong { color: var(--white); display: block; font-size: 16px; }
-    .contact-icon {
-      width: 44px; height: 44px; border-radius: 10px;
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
-      display: flex; align-items: center; justify-content: center; font-size: 20px;
-    }
+/* Colour chip badges */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+.chip-purple { background: var(--purple);      color: #fff; }
+.chip-orange { background: var(--orange);      color: #fff; }
+.chip-blue   { background: #2563eb;            color: #fff; }
+.chip-indigo { background: #4338ca;            color: #fff; }
+.chip-violet { background: var(--purple-mid);  color: #fff; }
+.chip-green  { background: var(--green);       color: #fff; }
 
-    /* ===== FOOTER ===== */
-    footer {
-      background: #060f0c; padding: 64px 0 32px;
-    }
-    .footer-grid {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px; padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .footer-brand p {
-      color: rgba(255,255,255,.5); font-size: 14px;
-      line-height: 1.75; margin: 16px 0 24px;
-    }
-    .footer-socials { display: flex; gap: 10px; }
-    .social-btn {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,.6); font-size: 14px; transition: all .25s;
-    }
-    .social-btn:hover { background: var(--teal); color: var(--white); border-color: var(--teal); }
-    .footer-col h4 {
-      color: var(--white); font-size: 14px; font-weight: 700;
-      letter-spacing: .06em; text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
-    .footer-col li a {
-      color: rgba(255,255,255,.5); font-size: 14px; transition: color .2s;
-    }
-    .footer-col li a:hover { color: var(--gold-light); }
-    .footer-bottom {
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 12px; padding-top: 28px;
-    }
-    .footer-bottom p { color: rgba(255,255,255,.35); font-size: 13px; }
-    .footer-bottom a { color: rgba(255,255,255,.5); }
+/* ═══════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 13px 26px;
+  border-radius: 50px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all .22s ease;
+  white-space: nowrap;
+  line-height: 1;
+}
+.btn-purple {
+  background: var(--purple);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(85,33,198,.32);
+}
+.btn-purple:hover {
+  background: var(--purple-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(85,33,198,.40);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--purple);
+  border: 1.5px solid var(--border-mid);
+}
+.btn-ghost:hover {
+  background: var(--purple-pale);
+  border-color: var(--purple);
+}
+.btn-orange {
+  background: var(--orange);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(240,78,35,.30);
+}
+.btn-orange:hover {
+  background: var(--orange2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(240,78,35,.38);
+}
+.btn-dark {
+  background: rgba(255,255,255,.10);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,.20);
+}
+.btn-dark:hover {
+  background: rgba(255,255,255,.16);
+}
 
-    /* ===== WHATSAPP FLOAT ===== */
-    .whatsapp-float {
-      position: fixed; bottom: 28px; right: 28px; z-index: 1000;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #25d366; color: var(--white);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px; box-shadow: 0 4px 20px rgba(37,211,102,.4);
-      transition: all .3s; cursor: pointer;
-    }
-    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,.5); }
+/* ═══════════════════════════════════════════
+   TOP BAR
+═══════════════════════════════════════════ */
+.topbar {
+  background: var(--dark);
+  color: rgba(255,255,255,.6);
+  font-size: 12.5px;
+  padding: 8px 0;
+}
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.topbar a {
+  color: rgba(255,255,255,.85);
+  transition: color .18s;
+}
+.topbar a:hover { color: #fff; }
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-    /* ===== SCROLL ANIMATE ===== */
-    .fade-up {
-      opacity: 0; transform: translateY(30px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: none; }
+/* ═══════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(240,238,255,.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow .25s;
+}
+.navbar.scrolled { box-shadow: 0 2px 20px rgba(85,33,198,.10); }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(2,1fr); }
-      .why-inner { grid-template-columns: 1fr; gap: 48px; }
-      .why-mini-badge { right: 0; bottom: -12px; }
-      .steps-grid { grid-template-columns: repeat(2,1fr); }
-      .steps-grid::before { display: none; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 768px) {
-      .topbar .container { justify-content: center; }
-      .topbar-links { display: none; }
-      .nav-links, .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
-      .hero-stats { grid-template-columns: repeat(3,1fr); }
-      .services-grid { grid-template-columns: 1fr; }
-      .testi-grid { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: 1fr 1fr; }
-      .faq-inner { grid-template-columns: 1fr; gap: 40px; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .why-metrics { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 480px) {
-      .hero { padding: 72px 0 60px; }
-      .hero-stats { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: 1fr; }
-      .trust-items { gap: 20px; }
-    }
-  </style>
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+}
+.logo-mark {
+  width: 36px;
+  height: 36px;
+  background: var(--purple);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.logo-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--dark);
+  letter-spacing: -.01em;
+}
+.logo-text span { color: var(--purple); }
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+  justify-content: center;
+}
+.nav-link {
+  padding: 7px 13px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text);
+  transition: all .18s;
+  position: relative;
+  white-space: nowrap;
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--purple);
+  background: var(--purple-pale);
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 2.5px;
+  background: var(--purple);
+  border-radius: 2px;
+}
+
+/* Nav right */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+  flex-shrink: 0;
+}
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--dark);
+  border-radius: 2px;
+  transition: all .28s;
+}
+
+/* Mobile menu */
+.mob-menu {
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+  padding: 14px 24px 18px;
+  background: rgba(240,238,255,.98);
+  backdrop-filter: blur(18px);
+  border-top: 1px solid var(--border);
+}
+.mob-menu.open { display: flex; }
+.mob-menu a {
+  padding: 10px 13px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  transition: all .18s;
+}
+.mob-menu a:hover { background: var(--purple-pale); color: var(--purple); }
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero {
+  padding: 72px 0 88px;
+  position: relative;
+  overflow: hidden;
+}
+/* Soft background blobs (CSS only, no distortion) */
+.hero-bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-bg-blob.b1 {
+  width: 480px; height: 480px;
+  background: rgba(124,58,237,.12);
+  top: -120px; right: -80px;
+}
+.hero-bg-blob.b2 {
+  width: 360px; height: 360px;
+  background: rgba(240,78,35,.07);
+  bottom: -60px; left: -60px;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.hero-left { max-width: 520px; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 14px 5px 8px;
+  background: var(--purple-pale);
+  border: 1px solid var(--border-mid);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 20px;
+}
+.badge-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%,100%{ box-shadow: 0 0 0 0 rgba(240,78,35,.4); }
+  50%    { box-shadow: 0 0 0 4px rgba(240,78,35,.0); }
+}
+
+.hero-title { margin-bottom: 16px; }
+
+.hero-desc {
+  margin-bottom: 32px;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 440px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+
+/* Stats row — fixed width items, no stretching */
+.hero-stats {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r);
+  overflow: hidden;
+  width: fit-content;
+  max-width: 100%;
+}
+.hs {
+  padding: 13px 22px;
+  background: var(--card);
+  text-align: center;
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.hs:last-child { border-right: none; }
+.hs-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.1;
+}
+.hs-lbl {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+/* Hero visual */
+.hero-right { position: relative; }
+
+.hero-art {
+  position: relative;
+  border-radius: var(--r3);
+  overflow: hidden;
+  aspect-ratio: 5/4;
+  background: linear-gradient(145deg, #160840 0%, #2a0f7a 45%, #160840 100%);
+}
+.art-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(36px);
+  opacity: .75;
+}
+.art-blob.ab1 { width:58%; height:58%; background:radial-gradient(#ff5722,#ff9800); top:-8%; left:-8%;
+  animation: ab 9s ease-in-out infinite; }
+.art-blob.ab2 { width:52%; height:52%; background:radial-gradient(#7c3aed,#5521c6); top:32%; right:-12%;
+  animation: ab 9s ease-in-out infinite -3s; }
+.art-blob.ab3 { width:48%; height:48%; background:radial-gradient(#ec4899,#9d6bf5); bottom:-8%; left:22%;
+  animation: ab 9s ease-in-out infinite -6s; }
+.art-blob.ab4 { width:36%; height:36%; background:radial-gradient(#06b6d4,#3b82f6); top:12%; right:22%;
+  animation: ab 9s ease-in-out infinite -1.5s; }
+@keyframes ab {
+  0%,100% { transform: translate(0,0) scale(1); }
+  40%     { transform: translate(12px,-12px) scale(1.04); }
+  70%     { transform: translate(-8px,8px) scale(.96); }
+}
+.art-glass {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(22,8,64,.28) 0%, transparent 55%);
+}
+.art-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: #fff;
+}
+.art-caption h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.art-caption p {
+  font-size: 12px;
+  opacity: .72;
+  line-height: 1.5;
+}
+
+/* Floating pills */
+.fpill {
+  position: absolute;
+  background: var(--card);
+  border: 1px solid var(--border-mid);
+  border-radius: 50px;
+  padding: 9px 15px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  box-shadow: var(--sd-md);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--dark);
+  white-space: nowrap;
+  z-index: 2;
+}
+.fpill-top  { top: -16px; right: 18px; animation: fp 4s ease-in-out infinite; }
+.fpill-bot  { bottom: 18px; left: -16px; animation: fp 4s ease-in-out infinite -2s; }
+@keyframes fp {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-7px); }
+}
+.fp-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(22,163,74,.2);
+}
+
+/* ═══════════════════════════════════════════
+   TRUST BAR
+═══════════════════════════════════════════ */
+.trust {
+  padding: 18px 0;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.trust-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+.ti-icon {
+  width: 30px; height: 30px;
+  background: var(--purple-pale);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.trust-div {
+  width: 1px; height: 24px;
+  background: var(--border-mid);
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   SERVICES — TABS & PLAN CARDS
+═══════════════════════════════════════════ */
+.services-section { background: var(--bg-alt); }
+
+/* Tab nav */
+.tab-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 40px 0 48px;
+}
+.tab-btn {
+  padding: 9px 20px;
+  border-radius: 50px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid var(--border-mid);
+  background: transparent;
+  color: var(--text);
+  transition: all .2s;
+  font-family: 'Outfit', sans-serif;
+}
+.tab-btn.active, .tab-btn:hover {
+  background: var(--purple);
+  color: #fff;
+  border-color: var(--purple);
+  box-shadow: 0 3px 14px rgba(85,33,198,.28);
+}
+
+/* Tab panels */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Plans grid — 3 columns, even */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* Plan card */
+.plan-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r2);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sd-md);
+  border-color: var(--border-mid);
+}
+/* Featured card — elevated but NO scale() to avoid stretching */
+.plan-card.featured {
+  border-color: var(--purple);
+  box-shadow: var(--sd-lg);
+  background: var(--card);
+}
+.plan-card.featured:hover {
+  transform: translateY(-6px);
+}
+
+.plan-popular {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--orange);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 16px;
+  border-radius: 50px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.plan-icon {
+  width: 50px; height: 50px;
+  background: var(--purple-pale);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+.plan-icon.fi {
+  background: linear-gradient(135deg, var(--purple), var(--purple-mid));
+  box-shadow: 0 6px 20px rgba(85,33,198,.30);
+}
+
+.plan-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 3px;
+  line-height: 1.25;
+}
+.plan-timing {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.4;
+}
+
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 3px;
+}
+.price-main {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1;
+}
+.price-sfx {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.plan-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 18px 0 22px;
+  flex: 1;
+}
+.pf {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.pf-icon {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--purple-pale);
+  color: var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.plan-cta {
+  width: 100%;
+  padding: 13px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all .22s;
+  font-family: 'Outfit', sans-serif;
+  line-height: 1;
+}
+.pcta-ghost {
+  background: transparent;
+  color: var(--purple);
+  border: 1.5px solid var(--border-mid);
+}
+.pcta-ghost:hover {
+  background: var(--purple-pale);
+  border-color: var(--purple);
+}
+.pcta-solid {
+  background: var(--purple);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(85,33,198,.32);
+}
+.pcta-solid:hover {
+  background: var(--purple-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(85,33,198,.38);
+}
+
+/* ═══════════════════════════════════════════
+   WHY US
+═══════════════════════════════════════════ */
+.why-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.why-points {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+.why-pt {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  transition: all .25s;
+}
+.why-pt:hover {
+  border-color: var(--purple);
+  box-shadow: var(--sd);
+  transform: translateX(5px);
+}
+.why-pt-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--purple-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.why-pt-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--dark);
+  margin-bottom: 3px;
+}
+.why-pt-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Stats grid (right side) */
+.why-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.wsg {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 22px;
+  transition: all .25s;
+}
+.wsg:hover { box-shadow: var(--sd); border-color: var(--border-mid); }
+.wsg.purple { background: linear-gradient(135deg, var(--purple), var(--purple-mid)); border: none; }
+.wsg.orange { background: var(--orange); border: none; }
+.wsg.dark   { background: var(--dark2); border: none; }
+
+.wsg-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1;
+}
+.wsg.purple .wsg-num,
+.wsg.orange .wsg-num,
+.wsg.dark .wsg-num { color: #fff; }
+
+.wsg-lbl { font-size: 12px; color: var(--muted); margin-top: 5px; }
+.wsg.purple .wsg-lbl,
+.wsg.orange .wsg-lbl,
+.wsg.dark .wsg-lbl { color: rgba(255,255,255,.6); }
+
+/* Progress bar (wide card) */
+.wsg-wide {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.wsg-wide .wsg-num { font-size: 40px; flex-shrink: 0; }
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple), var(--purple-lite));
+  border-radius: 6px;
+  width: 99%;
+}
+
+/* Faces stack */
+.faces { display: flex; margin-top: 14px; }
+.face {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--purple-lite));
+  border: 2px solid #fff;
+  margin-left: -9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  flex-shrink: 0;
+}
+.face:first-child { margin-left: 0; }
+
+/* ═══════════════════════════════════════════
+   PROCESS
+═══════════════════════════════════════════ */
+.process-sec { background: var(--dark); }
+.process-sec .h2 { color: #fff; }
+.process-sec .lead { color: rgba(255,255,255,.55); }
+.process-sec .sec-head .lead { color: rgba(255,255,255,.55); }
+.process-sec .label-pill {
+  background: rgba(157,107,245,.15);
+  color: rgba(157,107,245,.9);
+  border-color: rgba(157,107,245,.25);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+  position: relative;
+}
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 34px;
+  left: calc(12.5% + 12px);
+  right: calc(12.5% + 12px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--purple), var(--purple-lite), var(--orange));
+  z-index: 0;
+}
+.step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.step-circle {
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--purple-mid));
+  color: #fff;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  border: 3px solid var(--dark);
+  box-shadow: 0 0 0 2px var(--purple);
+  position: relative;
+  z-index: 1;
+}
+.step-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.step-desc { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.65; }
+
+/* ═══════════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════════ */
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 52px;
+}
+.testi {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 26px;
+  transition: all .25s;
+  position: relative;
+  overflow: hidden;
+}
+.testi::before {
+  content: '\275D';
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 52px;
+  color: var(--purple-pale);
+  line-height: 1;
+  font-family: serif;
+}
+.testi:hover {
+  box-shadow: var(--sd-md);
+  border-color: var(--border-mid);
+  transform: translateY(-4px);
+}
+.testi-stars { color: #f59e0b; font-size: 14px; letter-spacing: 2px; margin-bottom: 12px; }
+.testi-text  { font-size: 13.5px; line-height: 1.75; color: var(--text); margin-bottom: 18px; font-style: italic; position: relative; z-index: 1; }
+.testi-author { display: flex; align-items: center; gap: 10px; }
+.t-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--purple-lite));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+.t-name { font-weight: 700; font-size: 13px; color: var(--dark); }
+.t-role { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+
+/* ═══════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════ */
+.faq-sec { background: var(--bg-alt); }
+.faq-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: start;
+}
+.faq-left-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.faq-list { display: flex; flex-direction: column; gap: 9px; }
+
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.faq-item.open { border-color: var(--purple); }
+
+.fq {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--dark);
+  user-select: none;
+}
+.fq-icon {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--purple-pale);
+  color: var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  line-height: 1;
+  transition: all .25s;
+}
+.faq-item.open .fq-icon {
+  background: var(--purple);
+  color: #fff;
+  transform: rotate(45deg);
+}
+.fa {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .32s ease, padding .28s;
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.72;
+}
+.fa.open { max-height: 220px; padding: 0 18px 16px; }
+
+/* ═══════════════════════════════════════════
+   CTA BANNER
+═══════════════════════════════════════════ */
+.cta-sec {
+  background: linear-gradient(145deg, var(--dark) 0%, var(--dark2) 100%);
+  padding: 88px 0;
+  position: relative;
+  overflow: hidden;
+}
+.cta-sec::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 110%, rgba(124,58,237,.28) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-sec::after {
+  content: '';
+  position: absolute;
+  top: -180px; right: -120px;
+  width: 440px; height: 440px;
+  background: radial-gradient(circle, rgba(124,58,237,.16) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.cta-inner .label-pill {
+  background: rgba(157,107,245,.12);
+  color: rgba(157,107,245,.9);
+  border-color: rgba(157,107,245,.22);
+  margin-bottom: 16px;
+}
+.cta-inner .h2 { color: #fff; margin-bottom: 14px; }
+.cta-inner .lead { color: rgba(255,255,255,.58); margin: 0 auto 36px; }
+
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+.cta-contacts {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,.09);
+}
+.cc {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255,255,255,.6);
+  font-size: 13.5px;
+}
+.cc-icon {
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.cc strong { display: block; color: #fff; font-size: 14px; margin-top: 1px; }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  background: #09061a;
+  padding: 64px 0 28px;
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1.3fr;
+  gap: 44px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.foot-brand .logo-text { color: #fff; }
+.foot-brand p {
+  color: rgba(255,255,255,.42);
+  font-size: 13.5px;
+  line-height: 1.75;
+  margin: 16px 0 22px;
+  max-width: 260px;
+}
+.foot-socials { display: flex; gap: 7px; }
+.fsoc {
+  width: 34px; height: 34px;
+  border-radius: 7px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,.45);
+  font-size: 12px;
+  transition: all .22s;
+}
+.fsoc:hover { background: var(--purple); color: #fff; border-color: var(--purple); }
+
+.foot-col h4 {
+  color: rgba(255,255,255,.85);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.foot-col ul { display: flex; flex-direction: column; gap: 9px; }
+.foot-col li a { color: rgba(255,255,255,.42); font-size: 13.5px; transition: color .18s; }
+.foot-col li a:hover { color: var(--purple-lite); }
+
+/* Newsletter col */
+.foot-nl p { color: rgba(255,255,255,.42); font-size: 13px; line-height: 1.65; margin-bottom: 14px; }
+.nl-form {
+  display: flex;
+  border-radius: 50px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+}
+.nl-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 11px 16px;
+  font-size: 13px;
+  font-family: 'Outfit', sans-serif;
+  outline: none;
+  min-width: 0;
+}
+.nl-form input::placeholder { color: rgba(255,255,255,.30); }
+.nl-form button {
+  background: var(--purple);
+  border: none;
+  padding: 11px 16px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 15px;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.nl-form button:hover { background: var(--purple-mid); }
+
+.foot-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 24px;
+}
+.foot-bottom p { color: rgba(255,255,255,.28); font-size: 12.5px; }
+.foot-links { display: flex; gap: 18px; }
+.foot-links a { color: rgba(255,255,255,.35); font-size: 12.5px; transition: color .18s; }
+.foot-links a:hover { color: var(--purple-lite); }
+
+/* ═══════════════════════════════════════════
+   WHATSAPP FLOAT
+═══════════════════════════════════════════ */
+.wa {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 1000;
+  width: 52px; height: 52px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 4px 18px rgba(37,211,102,.38);
+  transition: all .25s;
+  cursor: pointer;
+}
+.wa:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 26px rgba(37,211,102,.48);
+}
+
+/* ═══════════════════════════════════════════
+   SCROLL ANIMATIONS
+═══════════════════════════════════════════ */
+.anim {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+.anim.from-left  { transform: translateX(-22px); }
+.anim.from-right { transform: translateX(22px); }
+.anim.in { opacity: 1; transform: none; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero-inner   { grid-template-columns: 1fr; gap: 44px; }
+  .hero-right   { display: none; }
+  .hero-left    { max-width: 100%; }
+  .why-inner    { grid-template-columns: 1fr; gap: 44px; }
+  .faq-inner    { grid-template-columns: 1fr; gap: 36px; }
+  .foot-grid    { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .steps        { grid-template-columns: repeat(2, 1fr); }
+  .steps::before{ display: none; }
+  .testi-grid   { grid-template-columns: repeat(2, 1fr); }
+  .plans-grid   { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .nav-links, .nav-right { display: none; }
+  .hamburger { display: flex; }
+  .topbar-right { display: none; }
+  .hero         { padding: 56px 0 68px; }
+  .trust-div    { display: none; }
+  .trust-row    { gap: 18px; }
+  .plans-grid   { grid-template-columns: 1fr; }
+  .testi-grid   { grid-template-columns: 1fr; }
+  .steps        { grid-template-columns: 1fr 1fr; }
+  .foot-grid    { grid-template-columns: 1fr; gap: 32px; }
+  .why-stats-grid { grid-template-columns: 1fr 1fr; }
+  .cta-contacts { gap: 24px; }
+}
+
+@media (max-width: 540px) {
+  .hero-stats   { flex-direction: column; width: 100%; }
+  .hs           { border-right: none; border-bottom: 1px solid var(--border); }
+  .hs:last-child{ border-bottom: none; }
+  .hero-btns    { flex-direction: column; }
+  .hero-btns .btn { width: 100%; }
+  .steps        { grid-template-columns: 1fr; }
+  .cta-btns     { flex-direction: column; align-items: center; }
+}
+</style>
 </head>
 <body>
 
-<!-- TOPBAR -->
+<!-- TOP BAR -->
 <div class="topbar">
   <div class="container">
-    <span>📍 Serving All India | Online & Offline | Trusted by 10,000+ Clients</span>
-    <div class="topbar-links">
+    <span>🚀 Serving All India Online &nbsp;·&nbsp; Trusted by 10,000+ Clients</span>
+    <div class="topbar-right">
       <a href="tel:+919876543210">📞 +91 98765 43210</a>
       <a href="mailto:info@taxproindia.com">✉ info@taxproindia.com</a>
     </div>
@@ -666,691 +1394,810 @@
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a class="logo" href="#">
-      <div class="logo-icon">⚖️</div>
-      <div class="logo-text">
-        <strong>TaxPro India</strong>
-        <span>Chartered Accountants</span>
-      </div>
+      <div class="logo-mark">⚖</div>
+      <div class="logo-text">Tax<span>Pro</span></div>
     </a>
+
     <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#why-us">Why Us</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#testimonials">Reviews</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a class="nav-link" href="#services">Income Tax</a></li>
+      <li><a class="nav-link" href="#services">GST</a></li>
+      <li><a class="nav-link" href="#services">Company</a></li>
+      <li><a class="nav-link" href="#services">Notices</a></li>
+      <li><a class="nav-link" href="#faq">FAQ</a></li>
     </ul>
-    <div class="nav-cta">
-      <a class="btn btn-outline" href="tel:+919876543210">Call CA</a>
-      <a class="btn btn-primary" href="#services">Get Started</a>
+
+    <div class="nav-right">
+      <a class="btn btn-ghost" href="tel:+919876543210" style="padding:9px 20px;font-size:13.5px">Call CA</a>
+      <a class="btn btn-purple" href="#services" style="padding:9px 20px;font-size:13.5px">Consult CA →</a>
     </div>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#services" onclick="toggleMenu()">Services</a>
-    <a href="#why-us" onclick="toggleMenu()">Why Us</a>
-    <a href="#process" onclick="toggleMenu()">Process</a>
-    <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
-    <a href="#faq" onclick="toggleMenu()">FAQ</a>
-    <a class="btn btn-primary" href="tel:+919876543210" style="width:max-content">📞 Call Now</a>
+
+  <div class="mob-menu" id="mobMenu">
+    <a href="#services" onclick="closeMenu()">Income Tax</a>
+    <a href="#services" onclick="closeMenu()">GST Services</a>
+    <a href="#services" onclick="closeMenu()">Company</a>
+    <a href="#services" onclick="closeMenu()">Notice Reply</a>
+    <a href="#faq"      onclick="closeMenu()">FAQ</a>
+    <a class="btn btn-purple" href="tel:+919876543210" style="width:fit-content;margin-top:6px;font-size:13.5px;padding:10px 22px">📞 Call CA Now</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ═══════ HERO ═══════ -->
 <section class="hero">
-  <div class="hero-grid-lines"></div>
+  <div class="hero-bg-blob b1"></div>
+  <div class="hero-bg-blob b2"></div>
+
   <div class="container">
     <div class="hero-inner">
-      <div>
-        <div class="hero-badge">🏆 India's Most Trusted Tax Experts</div>
-        <h1>Expert <em>Tax &amp; CA</em><br>Services Online</h1>
-        <p class="hero-sub">
-          From filing your ITR to registering your company — our expert Chartered Accountants handle everything. Fast, accurate, and 100% compliant.
+
+      <!-- LEFT -->
+      <div class="hero-left">
+        <div class="hero-badge anim">
+          <div class="badge-dot"></div>
+          Startup Special: Zero Fee Registration
+        </div>
+
+        <h1 class="h1 hero-title anim">
+          File Taxes,<br>
+          <em class="accent">Stress-Free.</em>
+        </h1>
+
+        <p class="hero-desc anim">
+          TaxPro simplifies tax compliance with expert CA support
+          and professional-grade accuracy. Join 10,000+ individuals
+          and businesses who trust us.
         </p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="#services">View All Services</a>
-          <a class="btn btn-outline" href="tel:+919876543210" style="color:#fff;border-color:rgba(255,255,255,.35)">📞 Free Consultation</a>
+
+        <div class="hero-btns anim">
+          <a class="btn btn-purple" href="#services" style="font-size:15px;padding:14px 30px">Start Filing →</a>
+          <a class="btn btn-ghost"  href="#process"  style="font-size:15px;padding:14px 30px">How It Works</a>
         </div>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <div class="stat-num">10K+</div>
-            <div class="stat-lbl">Happy Clients</div>
+
+        <div class="hero-stats anim">
+          <div class="hs">
+            <div class="hs-num">₹499</div>
+            <div class="hs-lbl">Starting Price</div>
           </div>
-          <div class="stat-item">
-            <div class="stat-num">₹499</div>
-            <div class="stat-lbl">Starting Price</div>
+          <div class="hs">
+            <div class="hs-num">24hr</div>
+            <div class="hs-lbl">Fast Filing</div>
           </div>
-          <div class="stat-item">
-            <div class="stat-num">24hr</div>
-            <div class="stat-lbl">Turnaround</div>
+          <div class="hs">
+            <div class="hs-num">10K+</div>
+            <div class="hs-lbl">Happy Clients</div>
           </div>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="floating-badge">✅ GSTIN in 5 Days</div>
-        <div class="hero-card">
-          <div class="hero-card-title">
-            <span>Our Popular Services</span>
-            <span style="color:var(--gold-light);font-size:13px">Starting ₹499</span>
-          </div>
-          <div class="hero-service-list">
-            <div class="hero-service-item">
-              <div class="hero-service-icon">📋</div>
-              <div class="hero-service-info">
-                <strong>Income Tax Return Filing</strong>
-                <span>₹499 onwards · 24–48 hrs</span>
-              </div>
-            </div>
-            <div class="hero-service-item">
-              <div class="hero-service-icon">🏛️</div>
-              <div class="hero-service-info">
-                <strong>GST Registration</strong>
-                <span>₹999 · 3–5 working days</span>
-              </div>
-            </div>
-            <div class="hero-service-item">
-              <div class="hero-service-icon">📊</div>
-              <div class="hero-service-info">
-                <strong>GST Return Filing</strong>
-                <span>₹499/month · Monthly plan</span>
-              </div>
-            </div>
-            <div class="hero-service-item">
-              <div class="hero-service-icon">🏢</div>
-              <div class="hero-service-info">
-                <strong>Company Registration</strong>
-                <span>₹6,999 onwards · 7–10 days</span>
-              </div>
-            </div>
+          <div class="hs">
+            <div class="hs-num">98%</div>
+            <div class="hs-lbl">Success Rate</div>
           </div>
         </div>
       </div>
+
+      <!-- RIGHT (hidden on mobile) -->
+      <div class="hero-right anim from-right">
+        <div class="fpill fpill-top">
+          <div class="fp-dot"></div>
+          GSTIN in 5 Days Guaranteed
+        </div>
+
+        <div class="hero-art">
+          <div class="art-blob ab1"></div>
+          <div class="art-blob ab2"></div>
+          <div class="art-blob ab3"></div>
+          <div class="art-blob ab4"></div>
+          <div class="art-glass"></div>
+          <div class="art-caption">
+            <h3>Expert CA Assigned to You</h3>
+            <p>ICAI Registered · All India Coverage · 100% Online</p>
+          </div>
+        </div>
+
+        <div class="fpill fpill-bot">
+          <span style="font-size:15px">🏆</span>
+          Max Refund Guarantee
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
+<!-- ═══════ TRUST BAR ═══════ -->
+<div class="trust">
   <div class="container">
-    <div class="trust-items">
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        100% Secure & Confidential
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Fast 24–48 Hour Filing
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        Expert CA Assigned
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        Maximum Refund Guarantee
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        All India Coverage
-      </div>
+    <div class="trust-row">
+      <div class="trust-item"><div class="ti-icon">🔐</div>100% Secure</div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><div class="ti-icon">⚡</div>24–48 hr Filing</div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><div class="ti-icon">👨‍💼</div>Dedicated CA</div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><div class="ti-icon">💰</div>Max Refund Guarantee</div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><div class="ti-icon">🗺️</div>Pan-India Coverage</div>
     </div>
   </div>
 </div>
 
-<!-- SERVICES -->
-<section class="services" id="services">
+<!-- ═══════ SERVICES ═══════ -->
+<section class="section services-section" id="services">
   <div class="container">
-    <div class="services-header fade-up">
-      <div class="section-label">Our Services</div>
-      <h2 class="section-title">Everything You Need for <span>Tax Compliance</span></h2>
-      <p class="section-sub">Complete tax and business registration solutions handled by qualified CAs — affordable, fast, and reliable.</p>
+
+    <div class="sec-head anim">
+      <div class="label-pill">Choose Your Plan</div>
+      <h2 class="h2">Complete Tax &amp; <em class="accent">CA Services</em></h2>
+      <p class="lead">Expert solutions for every compliance need — transparent pricing, no hidden charges.</p>
     </div>
 
-    <div class="services-grid">
-
-      <!-- 1. ITR -->
-      <div class="service-card popular fade-up">
-        <span class="card-badge">Most Popular</span>
-        <div class="service-icon">📋</div>
-        <div class="service-name">Income Tax Return Filing</div>
-        <div class="service-timing">⏱ Completed in 24–48 hours</div>
-        <div class="service-price">
-          <span class="price-main">₹499</span>
-          <span class="price-suffix">onwards</span>
-        </div>
-        <div class="features-list">
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All ITR forms (ITR-1 to ITR-7)</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Salaried: ₹499 | Business: ₹1,999</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Capital Gains: ₹999 | Freelancer: ₹1,499</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tax saving consultation included</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Maximum refund guarantee</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Form 16 analysis &amp; optimization</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Free revision if needed</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ITR-V acknowledgment download</div>
-        </div>
-        <button class="card-cta" onclick="window.location.href='tel:+919876543210'">File ITR Now – Call CA</button>
-      </div>
-
-      <!-- 2. GST Registration -->
-      <div class="service-card fade-up">
-        <span class="card-badge gold">Fast Track</span>
-        <div class="service-icon">🏛️</div>
-        <div class="service-name">GST Registration</div>
-        <div class="service-timing">⏱ Completed in 3–5 working days</div>
-        <div class="service-price">
-          <span class="price-main">₹999</span>
-        </div>
-        <div class="features-list">
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Complete documentation support</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Regular + Composition scheme</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All India coverage (any state)</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Digital signature certificate assistance</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>GSTIN within 5 days guaranteed</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Free GST compliance consultation</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Free first month return filing</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Post-registration support 30 days</div>
-        </div>
-        <button class="card-cta" onclick="window.location.href='tel:+919876543210'">Register for GST Now</button>
-      </div>
-
-      <!-- 3. GST Return Filing -->
-      <div class="service-card fade-up">
-        <span class="card-badge" style="background:var(--teal-light)">Monthly Plan</span>
-        <div class="service-icon">📊</div>
-        <div class="service-name">GST Return Filing</div>
-        <div class="service-timing">📅 Filed before due date always</div>
-        <div class="service-price">
-          <span class="price-main">₹499</span>
-          <span class="price-suffix">/month</span>
-        </div>
-        <div class="features-list">
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>GSTR-1, GSTR-3B filing monthly</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Quarterly: ₹399/month (save 20%)</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Annual: ₹4,499 (save 25%)</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Input tax credit reconciliation</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>E-way bill generation support</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>GST invoice format assistance</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Late fee payment if we miss deadline</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Dedicated GST expert assigned</div>
-        </div>
-        <button class="card-cta" onclick="window.location.href='tel:+919876543210'">Subscribe to GST Plan</button>
-      </div>
-
-      <!-- 4. IT Notice Reply -->
-      <div class="service-card fade-up">
-        <span class="card-badge" style="background:#1a5fb4">Expert Support</span>
-        <div class="service-icon">⚠️</div>
-        <div class="service-name">Income Tax Notice Reply</div>
-        <div class="service-timing">⚡ Response within 24 hours</div>
-        <div class="service-price">
-          <span class="price-main">₹1,999</span>
-          <span class="price-suffix">onwards</span>
-        </div>
-        <div class="features-list">
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All notice types: 143(1), 139(9), 148</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>CA drafted professional reply</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Document compilation &amp; verification</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Direct filing on income tax portal</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Follow-up until case closure</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Litigation support if needed</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>FREE if return filed by us</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Senior CA handles your case</div>
-        </div>
-        <button class="card-cta" onclick="window.location.href='tel:+919876543210'">Get Notice Help Now</button>
-      </div>
-
-      <!-- 5. GST Notice Reply -->
-      <div class="service-card fade-up">
-        <span class="card-badge urgent">Urgent</span>
-        <div class="service-icon">🔔</div>
-        <div class="service-name">GST Notice Reply</div>
-        <div class="service-timing">⚡ Same day consultation</div>
-        <div class="service-price">
-          <span class="price-main">₹2,499</span>
-          <span class="price-suffix">onwards</span>
-        </div>
-        <div class="features-list">
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>All GST notices &amp; show cause</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>GSTR-3B mismatch resolution</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ITC reversal dispute handling</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Expert representation before officer</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Documentation &amp; evidence preparation</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Personal hearing attendance</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Appeal filing if required</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Experienced GST lawyer assigned</div>
-        </div>
-        <button class="card-cta" onclick="window.location.href='tel:+919876543210'">Resolve GST Notice</button>
-      </div>
-
-      <!-- 6. Company Registration -->
-      <div class="service-card fade-up">
-        <span class="card-badge startup">Startup Special</span>
-        <div class="service-icon">🏢</div>
-        <div class="service-name">Company Registration</div>
-        <div class="service-timing">⏱ Completed in 7–10 days</div>
-        <div class="service-price">
-          <span class="price-main">₹6,999</span>
-          <span class="price-suffix">onwards</span>
-        </div>
-        <div class="features-list">
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pvt Ltd: ₹6,999 | LLP: ₹5,999</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>OPC: ₹5,499 | Partnership: ₹2,999</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Name approval &amp; reservation</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Digital signature certificate (2 DSC)</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>DIN for directors</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>MCA filing &amp; incorporation certificate</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>PAN, TAN application included</div>
-          <div class="feature-item"><span class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Free GST &amp; bank account opening support</div>
-        </div>
-        <button class="card-cta" onclick="window.location.href='tel:+919876543210'">Start Your Company</button>
-      </div>
-
+    <!-- Tab Nav -->
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab('itr',this)">📋 Income Tax</button>
+      <button class="tab-btn" onclick="switchTab('gst',this)">🏛 GST Services</button>
+      <button class="tab-btn" onclick="switchTab('company',this)">🏢 Company</button>
+      <button class="tab-btn" onclick="switchTab('notice',this)">⚠ Notice Reply</button>
     </div>
+
+    <!-- ITR -->
+    <div class="tab-panel active" id="tab-itr">
+      <div class="plans-grid">
+
+        <div class="plan-card anim">
+          <div class="plan-icon">👔</div>
+          <div class="chip chip-blue">Salaried</div>
+          <div class="plan-name">Simple ITR</div>
+          <div class="plan-timing">⏱ Completed in 24 hours</div>
+          <div class="plan-price"><span class="price-main">₹499</span><span class="price-sfx">one-time</span></div>
+          <div class="plan-features">
+            <div class="pf"><div class="pf-icon">✓</div>ITR-1 &amp; ITR-2 forms</div>
+            <div class="pf"><div class="pf-icon">✓</div>Salaried income + HRA</div>
+            <div class="pf"><div class="pf-icon">✓</div>Form 16 analysis</div>
+            <div class="pf"><div class="pf-icon">✓</div>Max deduction calculation</div>
+            <div class="pf"><div class="pf-icon">✓</div>ITR-V acknowledgment</div>
+            <div class="pf"><div class="pf-icon">✓</div>Free revision if needed</div>
+          </div>
+          <button class="plan-cta pcta-ghost" onclick="call()">Get Started</button>
+        </div>
+
+        <div class="plan-card featured anim">
+          <div class="plan-popular">MOST POPULAR</div>
+          <div class="plan-icon fi">📊</div>
+          <div class="chip chip-purple">Business &amp; Capital Gains</div>
+          <div class="plan-name">Advanced ITR</div>
+          <div class="plan-timing">⏱ Completed in 24–48 hours</div>
+          <div class="plan-price"><span class="price-main">₹999</span><span class="price-sfx">onwards</span></div>
+          <div class="plan-features">
+            <div class="pf"><div class="pf-icon">✓</div>All ITR forms (ITR-1 to ITR-7)</div>
+            <div class="pf"><div class="pf-icon">✓</div>Business income: ₹1,999</div>
+            <div class="pf"><div class="pf-icon">✓</div>Capital Gains: ₹999</div>
+            <div class="pf"><div class="pf-icon">✓</div>Freelancer / Crypto: ₹1,499</div>
+            <div class="pf"><div class="pf-icon">✓</div>Tax saving consultation included</div>
+            <div class="pf"><div class="pf-icon">✓</div>Maximum refund guarantee</div>
+            <div class="pf"><div class="pf-icon">✓</div>Senior CA assigned</div>
+          </div>
+          <button class="plan-cta pcta-solid" onclick="call()">File ITR Now – Call CA</button>
+        </div>
+
+        <div class="plan-card anim">
+          <div class="plan-icon">✈️</div>
+          <div class="chip chip-indigo">NRI &amp; Foreign Income</div>
+          <div class="plan-name">NRI ITR Filing</div>
+          <div class="plan-timing">⏱ Completed in 48–72 hours</div>
+          <div class="plan-price"><span class="price-main">₹2,499</span><span class="price-sfx">onwards</span></div>
+          <div class="plan-features">
+            <div class="pf"><div class="pf-icon">✓</div>NRI status determination</div>
+            <div class="pf"><div class="pf-icon">✓</div>DTAA benefit optimisation</div>
+            <div class="pf"><div class="pf-icon">✓</div>Foreign asset disclosure</div>
+            <div class="pf"><div class="pf-icon">✓</div>Repatriation guidance</div>
+            <div class="pf"><div class="pf-icon">✓</div>TDS refund on property sale</div>
+            <div class="pf"><div class="pf-icon">✓</div>Dedicated NRI tax expert</div>
+          </div>
+          <button class="plan-cta pcta-ghost" onclick="call()">Get Enterprise</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GST -->
+    <div class="tab-panel" id="tab-gst">
+      <div class="plans-grid">
+
+        <div class="plan-card anim">
+          <div class="plan-icon">📝</div>
+          <div class="chip chip-blue">New Business</div>
+          <div class="plan-name">GST Registration</div>
+          <div class="plan-timing">⏱ GSTIN in 3–5 working days</div>
+          <div class="plan-price"><span class="price-main">₹999</span></div>
+          <div class="plan-features">
+            <div class="pf"><div class="pf-icon">✓</div>Complete documentation support</div>
+            <div class="pf"><div class="pf-icon">✓</div>Regular + Composition scheme</div>
+            <div class="pf"><div class="pf-icon">✓</div>All India coverage (any state)</div>
+            <div class="pf"><div class="pf-icon">✓</div>DSC assistance included</div>
+            <div class="pf"><div class="pf-icon">✓</div>Free first month return filing</div>
+            <div class="pf"><div class="pf-icon">✓</div>Post-registration 30-day support</div>
+          </div>
+          <button class="plan-cta pcta-ghost" onclick="call()">Register Now</button>
+        </div>
+
+        <div class="plan-card featured anim">
+          <div class="plan-popular">FAST TRACK</div>
+          <div class="plan-icon fi">📅</div>
+          <div class="chip chip-purple">Monthly Filing</div>
+          <div class="plan-name">GST Return Filing</div>
+          <div class="plan-timing">📅 Filed before due date — always</div>
+          <div class="plan-price"><span class="price-main">₹499</span><span class="price-sfx">/month</span></div>
+          <div class="plan-features">
+            <div class="pf"><div class="pf-icon">✓</div>GSTR-1, GSTR-3B filing monthly</div>
+            <div class="pf"><div class="pf-icon">✓</div>Quarterly: ₹399/month (save 20%)</div>
+            <div class="pf"><div class="pf-icon">✓</div>Annual: ₹4,499 (save 25%)</div>
+            <div class="pf"><div class="pf-icon">✓</div>Input tax credit reconciliation</div>
+            <div class="pf"><div class="pf-icon">✓</div>E-way bill generation support</div>
+            <div class="pf"><div class="pf-icon">✓</div>Late fee if WE miss deadline</div>
+            <div class="pf"><div class="pf-icon">✓</div>Dedicated GST expert assigned</div>
+          </div>
+          <button class="plan-cta pcta-solid" onclick="call()">Subscribe to Plan</button>
+        </div>
+
+        <div class="plan-card anim">
+          <div class="plan-icon">🔔</div>
+          <div class="chip chip-orange">Urgent</div>
+          <div class="plan-name">GST Notice Reply</div>
+          <div class="plan-timing">⚡ Same day consultation</div>
+          <div class="plan-price"><span class="price-main">₹2,499</span><span class="price-sfx">onwards</span></div>
+          <div class="plan-features">
+            <div class="pf"><div class="pf-icon">✓</div>All GST notices &amp; show cause</div>
+            <div class="pf"><div class="pf-icon">✓</div>GSTR-3B mismatch resolution</div>
+            <div class="pf"><div class="pf-icon">✓</div>ITC reversal dispute handling</div>
+            <div class="pf"><div class="pf-icon">✓</div>Expert representation before officer</div>
+            <div class="pf"><div class="pf-icon">✓</div>Personal hearing attendance</div>
+            <div class="pf"><div class="pf-icon">✓</div>Experienced GST lawyer assigned</div>
+          </div>
+          <button class="plan-cta pcta-ghost" onclick="call()">Resolve Now</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Company -->
+    <div class="tab-panel" id="tab-company">
+      <div class="plans-grid">
+
+        <div class="plan-card anim">
+          <div class="plan-icon">🤝</div>
+          <div class="chip chip-blue">Seed Stage</div>
+          <div class="plan-name">Partnership / OPC</div>
+          <div class="plan-timing">⏱ Completed in 5–7 days</div>
+          <div class="plan-price"><span class="price-main">₹2,999</span><span class="price-sfx">onwards</span></div>
+          <div class="plan-features">
+            <div class="pf"><div class="pf-icon">✓</div>Partnership Firm: ₹2,999</div>
+            <div class="pf"><div class="pf-icon">✓</div>One Person Company: ₹5,499</div>
+            <div class="pf"><div class="pf-icon">✓</div>Name approval &amp; reservation</div>
+            <div class="pf"><div class="pf-icon">✓</div>DSC for directors/partners</div>
+            <div class="pf"><div class="pf-icon">✓</div>PAN &amp; TAN application</div>
+            <div class="pf"><div class="pf-icon">✓</div>Free GST registration support</div>
+          </div>
+          <button class="plan-cta pcta-ghost" onclick="call()">Get Started</button>
+        </div>
+
+        <div class="plan-card featured anim">
+          <div class="plan-popular">STARTUP SPECIAL</div>
+          <div class="plan-icon fi">🚀</div>
+          <div class="chip chip-purple">Scale Stage</div>
+          <div class="plan-name">Pvt Ltd / LLP</div>
+          <div class="plan-timing">⏱ Completed in 7–10 days</div>
+          <div class="plan-price"><span class="price-main">₹5,999</span><span class="price-sfx">onwards</span></div>
+          <div class="plan-features">
+            <div class="pf"><div class="pf-icon">✓</div>Pvt Ltd: ₹6,999 | LLP: ₹5,999</div>
+            <div class="pf"><div class="pf-icon">✓</div>Name approval &amp; reservation</div>
+            <div class="pf"><div class="pf-icon">✓</div>2 DSC + DIN for directors</div>
+            <div class="pf"><div class="pf-icon">✓</div>MCA filing + Incorporation cert</div>
+            <div class="pf"><div class="pf-icon">✓</div>PAN, TAN application included</div>
+            <div class="pf"><div class="pf-icon">✓</div>Free GST + bank account opening</div>
+            <div class="pf"><div class="pf-icon">✓</div>30-day post-incorporation support</div>
+          </div>
+          <button class="plan-cta pcta-solid" onclick="call()">Start Your Company</button>
+        </div>
+
+        <div class="plan-card anim">
+          <div class="plan-icon">🦄</div>
+          <div class="chip chip-violet">Unicorn Stage</div>
+          <div class="plan-name">Enterprise Setup</div>
+          <div class="plan-timing">⏱ End-to-end in 10–14 days</div>
+          <div class="plan-price"><span class="price-main">₹14,999</span><span class="price-sfx">onwards</span></div>
+          <div class="plan-features">
+            <div class="pf"><div class="pf-icon">✓</div>Pvt Ltd + MSME + GST bundle</div>
+            <div class="pf"><div class="pf-icon">✓</div>Trademark search &amp; filing</div>
+            <div class="pf"><div class="pf-icon">✓</div>Startup India app &amp; recognition</div>
+            <div class="pf"><div class="pf-icon">✓</div>Legal advisory (1st year)</div>
+            <div class="pf"><div class="pf-icon">✓</div>Annual compliance filing (1 yr)</div>
+            <div class="pf"><div class="pf-icon">✓</div>Dedicated relationship manager</div>
+          </div>
+          <button class="plan-cta pcta-ghost" onclick="call()">Get Enterprise</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Notice -->
+    <div class="tab-panel" id="tab-notice">
+      <div class="plans-grid">
+
+        <div class="plan-card anim">
+          <div class="plan-icon">📬</div>
+          <div class="chip chip-blue">Expert Support</div>
+          <div class="plan-name">IT Notice Reply</div>
+          <div class="plan-timing">⚡ Response within 24 hours</div>
+          <div class="plan-price"><span class="price-main">₹1,999</span><span class="price-sfx">onwards</span></div>
+          <div class="plan-features">
+            <div class="pf"><div class="pf-icon">✓</div>All notice types: 143(1), 139(9), 148</div>
+            <div class="pf"><div class="pf-icon">✓</div>CA drafted professional reply</div>
+            <div class="pf"><div class="pf-icon">✓</div>Document compilation &amp; verification</div>
+            <div class="pf"><div class="pf-icon">✓</div>Direct filing on IT portal</div>
+            <div class="pf"><div class="pf-icon">✓</div>Follow-up until case closure</div>
+            <div class="pf"><div class="pf-icon">✓</div>FREE if return filed by us</div>
+          </div>
+          <button class="plan-cta pcta-ghost" onclick="call()">Get Notice Help</button>
+        </div>
+
+        <div class="plan-card featured anim">
+          <div class="plan-popular">URGENT</div>
+          <div class="plan-icon fi">⚡</div>
+          <div class="chip chip-orange">GST Notice</div>
+          <div class="plan-name">GST Notice Reply</div>
+          <div class="plan-timing">⚡ Same day consultation</div>
+          <div class="plan-price"><span class="price-main">₹2,499</span><span class="price-sfx">onwards</span></div>
+          <div class="plan-features">
+            <div class="pf"><div class="pf-icon">✓</div>All GST notices &amp; show cause</div>
+            <div class="pf"><div class="pf-icon">✓</div>GSTR-3B mismatch resolution</div>
+            <div class="pf"><div class="pf-icon">✓</div>ITC reversal dispute handling</div>
+            <div class="pf"><div class="pf-icon">✓</div>Expert representation before officer</div>
+            <div class="pf"><div class="pf-icon">✓</div>Personal hearing attendance</div>
+            <div class="pf"><div class="pf-icon">✓</div>Appeal filing if required</div>
+            <div class="pf"><div class="pf-icon">✓</div>Experienced GST lawyer assigned</div>
+          </div>
+          <button class="plan-cta pcta-solid" onclick="call()">Resolve GST Notice</button>
+        </div>
+
+        <div class="plan-card anim">
+          <div class="plan-icon">⚔️</div>
+          <div class="chip chip-violet">Litigation</div>
+          <div class="plan-name">Tax Litigation</div>
+          <div class="plan-timing">⏱ Full assessment support</div>
+          <div class="plan-price"><span class="price-main">₹4,999</span><span class="price-sfx">onwards</span></div>
+          <div class="plan-features">
+            <div class="pf"><div class="pf-icon">✓</div>Appeal before CIT(A)</div>
+            <div class="pf"><div class="pf-icon">✓</div>ITAT representation</div>
+            <div class="pf"><div class="pf-icon">✓</div>Penalty waiver application</div>
+            <div class="pf"><div class="pf-icon">✓</div>Prosecution defence</div>
+            <div class="pf"><div class="pf-icon">✓</div>Senior CA + advocate team</div>
+            <div class="pf"><div class="pf-icon">✓</div>Full case file management</div>
+          </div>
+          <button class="plan-cta pcta-ghost" onclick="call()">Get Enterprise</button>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- WHY US -->
-<section class="why-us" id="why-us">
+<!-- ═══════ WHY US ═══════ -->
+<section class="section" id="why-us">
   <div class="container">
     <div class="why-inner">
-      <div class="why-visual fade-up">
-        <div class="why-big-card">
-          <h3>Our Track Record Speaks</h3>
-          <div class="why-metrics">
-            <div class="metric-box">
-              <div class="metric-val">10K+</div>
-              <div class="metric-lbl">ITR Filed</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-val">98%</div>
-              <div class="metric-lbl">Success Rate</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-val">500+</div>
-              <div class="metric-lbl">Companies Registered</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-val">8 Yrs</div>
-              <div class="metric-lbl">Experience</div>
-            </div>
-          </div>
-          <div style="margin-top:24px;padding:16px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);border-radius:10px;">
-            <p style="color:var(--gold-light);font-size:13px;line-height:1.6">
-              ⭐ Rated 4.9/5 by 2,000+ verified clients across India. Our CAs are ICAI registered and compliance-first.
-            </p>
-          </div>
-        </div>
-        <div class="why-mini-badge">🔒 ICAI Registered CAs</div>
-      </div>
-      <div>
-        <div class="section-label">Why Choose Us</div>
-        <h2 class="section-title">The <span>Smarter Choice</span> for Tax Compliance</h2>
-        <p class="section-sub">We're not just a filing service. We're your year-round tax partner.</p>
-        <div class="reasons" style="margin-top:32px">
-          <div class="reason-item fade-up">
-            <div class="reason-num">01</div>
+
+      <!-- Left -->
+      <div class="anim from-left">
+        <div class="label-pill">Why Clients Love Us</div>
+        <h2 class="h2">Why Founders &amp; Taxpayers<br><em class="accent-orange">Love</em> Us</h2>
+
+        <div class="why-points">
+          <div class="why-pt">
+            <div class="why-pt-icon">⚡</div>
             <div>
-              <div class="reason-title">Dedicated CA for Every Client</div>
-              <div class="reason-desc">You're not just a ticket number. A qualified CA is assigned personally and remains your point of contact throughout.</div>
+              <div class="why-pt-title">Instant Processing</div>
+              <div class="why-pt-desc">Our expert CA team processes documents within hours, not days, using verified workflows for every filing.</div>
             </div>
           </div>
-          <div class="reason-item fade-up">
-            <div class="reason-num">02</div>
+          <div class="why-pt">
+            <div class="why-pt-icon">🛡️</div>
             <div>
-              <div class="reason-title">Maximum Refund, Guaranteed</div>
-              <div class="reason-desc">We analyze every deduction and exemption applicable to you, ensuring you claim the highest possible refund legally.</div>
+              <div class="why-pt-title">Zero Rejection Guarantee</div>
+              <div class="why-pt-desc">Expert CAs review every application before it reaches the Registrar. We refile at no extra cost if rejected due to our error.</div>
             </div>
           </div>
-          <div class="reason-item fade-up">
-            <div class="reason-num">03</div>
+          <div class="why-pt">
+            <div class="why-pt-icon">💸</div>
             <div>
-              <div class="reason-title">Late Penalty? We Pay It</div>
-              <div class="reason-desc">If we miss a deadline on our watch, we bear the late fee. That's how confident we are in our process.</div>
+              <div class="why-pt-title">Maximum Refund, Guaranteed</div>
+              <div class="why-pt-desc">We analyse every deduction and exemption so you claim the highest refund legally possible.</div>
             </div>
           </div>
-          <div class="reason-item fade-up">
-            <div class="reason-num">04</div>
+          <div class="why-pt">
+            <div class="why-pt-icon">📞</div>
             <div>
-              <div class="reason-title">Transparent, Flat Pricing</div>
-              <div class="reason-desc">No hidden charges. No surprises. The price you see is what you pay — including all government fees.</div>
+              <div class="why-pt-title">Dedicated CA — Always Reachable</div>
+              <div class="why-pt-desc">A named CA is your point of contact, available on call and WhatsApp throughout your entire service journey.</div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Right stats -->
+      <div class="anim from-right">
+        <div class="why-stats-grid">
+          <!-- Big purple card -->
+          <div class="wsg purple">
+            <div class="wsg-num">10K+</div>
+            <div class="wsg-lbl">Registrations done</div>
+            <div class="faces" style="margin-top:16px">
+              <div class="face">R</div>
+              <div class="face">P</div>
+              <div class="face">A</div>
+              <div class="face">S</div>
+              <div class="face">+</div>
+            </div>
+          </div>
+          <!-- Orange card -->
+          <div class="wsg orange">
+            <div style="font-size:24px;margin-bottom:8px">👑</div>
+            <div class="wsg-num" style="font-size:24px">8 Yrs</div>
+            <div class="wsg-lbl">Expert CAs</div>
+          </div>
+          <!-- Wide progress -->
+          <div class="wsg wsg-wide">
+            <div>
+              <div class="wsg-num" style="font-size:36px">99%</div>
+              <div class="wsg-lbl">Success Rate</div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+          <!-- Joy card -->
+          <div class="wsg" style="background:var(--purple-pale);border:none">
+            <div style="font-size:22px;margin-bottom:8px">😊</div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;color:var(--dark)">Joy</div>
+            <div style="font-size:11.5px;color:var(--muted);margin-top:2px">4.9★ Avg Rating</div>
+          </div>
+          <!-- Dark card -->
+          <div class="wsg dark">
+            <div style="font-size:22px;margin-bottom:8px">🔒</div>
+            <div style="color:rgba(255,255,255,.88);font-weight:700;font-size:13px">ICAI Registered</div>
+            <div style="color:rgba(255,255,255,.42);font-size:11.5px;margin-top:3px">Certified CAs</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="process" id="process">
+<!-- ═══════ PROCESS ═══════ -->
+<section class="section process-sec" id="process">
   <div class="container">
-    <div class="process-header fade-up">
-      <div class="section-label">How It Works</div>
-      <h2 class="section-title">Get Compliant in <span style="color:var(--gold-light)">4 Simple Steps</span></h2>
-      <p class="section-sub">Our streamlined process means you spend minutes, not days, on tax compliance.</p>
+    <div class="sec-head anim">
+      <div class="label-pill">How It Works</div>
+      <h2 class="h2">Compliant in <em style="color:var(--purple-lite);font-style:italic">4 Simple Steps</em></h2>
+      <p class="lead">Our streamlined process means you spend minutes, not days, on compliance.</p>
     </div>
-    <div class="steps-grid">
-      <div class="step-item fade-up">
+
+    <div class="steps">
+      <div class="step anim">
         <div class="step-circle">1</div>
-        <div class="step-title">Choose Your Service</div>
-        <div class="step-desc">Browse our services, select what you need, and click to connect with our team via call or WhatsApp.</div>
+        <div class="step-title">Choose Service</div>
+        <div class="step-desc">Browse plans, select what you need, and connect via call or WhatsApp in seconds.</div>
       </div>
-      <div class="step-item fade-up">
+      <div class="step anim">
         <div class="step-circle">2</div>
         <div class="step-title">Share Documents</div>
-        <div class="step-desc">Upload your documents securely via WhatsApp or email. Our CA checks everything within 2 hours.</div>
+        <div class="step-desc">Upload securely via WhatsApp or email. CA reviews everything within 2 hours.</div>
       </div>
-      <div class="step-item fade-up">
+      <div class="step anim">
         <div class="step-circle">3</div>
-        <div class="step-title">CA Reviews & Files</div>
-        <div class="step-desc">Your assigned CA prepares, verifies, and files your return or registration on the government portal.</div>
+        <div class="step-title">CA Files for You</div>
+        <div class="step-desc">Your assigned CA prepares, verifies, and files on the government portal.</div>
       </div>
-      <div class="step-item fade-up">
+      <div class="step anim">
         <div class="step-circle">4</div>
         <div class="step-title">Get Confirmation</div>
-        <div class="step-desc">Receive your acknowledgment, certificate, or GSTIN directly. We follow up until everything is settled.</div>
+        <div class="step-desc">Receive acknowledgment, certificate, or GSTIN. We follow up until settled.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
+<!-- ═══════ TESTIMONIALS ═══════ -->
+<section class="section" id="testimonials">
   <div class="container">
-    <div class="testi-header fade-up">
-      <div class="section-label">Client Reviews</div>
-      <h2 class="section-title">Trusted by <span>10,000+ Indians</span></h2>
-      <p class="section-sub">Real feedback from salaried professionals, business owners, and startups across India.</p>
+    <div class="sec-head anim">
+      <div class="label-pill">Client Reviews</div>
+      <h2 class="h2">Trusted by <em class="accent">10,000+ Indians</em></h2>
+      <p class="lead">Real feedback from salaried professionals, business owners, and startups across India.</p>
     </div>
+
     <div class="testi-grid">
-      <div class="testi-card fade-up">
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">"Filed my ITR with capital gains in just 6 hours. The CA explained everything clearly and my refund was processed in 3 weeks. Highly recommend!"</p>
+      <div class="testi anim">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Filed my ITR with capital gains in just 6 hours. The CA explained everything clearly and my refund arrived in 3 weeks. Absolutely recommend!"</p>
         <div class="testi-author">
-          <div class="author-avatar">R</div>
-          <div>
-            <div class="author-name">Rahul Sharma</div>
-            <div class="author-role">Software Engineer, Bengaluru</div>
-          </div>
+          <div class="t-avatar">R</div>
+          <div><div class="t-name">Rahul Sharma</div><div class="t-role">Software Engineer, Bengaluru</div></div>
         </div>
       </div>
-      <div class="testi-card fade-up">
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">"Got my GST registration done within 4 days. The team handled all documents, DSC, and even helped with my first month's return filing for free!"</p>
+      <div class="testi anim">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Got my GST registration in 4 days. They handled all documents, DSC, and gave free first-month return filing. Zero hassle from start to finish!"</p>
         <div class="testi-author">
-          <div class="author-avatar">P</div>
-          <div>
-            <div class="author-name">Priya Mehra</div>
-            <div class="author-role">Boutique Owner, Delhi</div>
-          </div>
+          <div class="t-avatar">P</div>
+          <div><div class="t-name">Priya Mehra</div><div class="t-role">Boutique Owner, Delhi</div></div>
         </div>
       </div>
-      <div class="testi-card fade-up">
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">"Received an IT notice 143(1) and panicked. TaxPro replied within the same day, filed a perfect response, and my case was closed in 2 weeks."</p>
+      <div class="testi anim">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Received an IT notice 143(1) and panicked. TaxPro replied same day, filed a perfect response, and my case closed in 2 weeks. Senior CA handled it all."</p>
         <div class="testi-author">
-          <div class="author-avatar">A</div>
-          <div>
-            <div class="author-name">Amit Joshi</div>
-            <div class="author-role">Freelancer, Pune</div>
-          </div>
+          <div class="t-avatar">A</div>
+          <div><div class="t-name">Amit Joshi</div><div class="t-role">Freelancer, Pune</div></div>
         </div>
       </div>
-      <div class="testi-card fade-up">
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">"Registered my Pvt Ltd company through them. From name approval to incorporation certificate, everything was done in 8 days flat. Worth every rupee!"</p>
+      <div class="testi anim">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Registered my Pvt Ltd through them. From name approval to incorporation certificate in just 8 days. Worth every rupee — full transparency throughout."</p>
         <div class="testi-author">
-          <div class="author-avatar">S</div>
-          <div>
-            <div class="author-name">Sneha Kapoor</div>
-            <div class="author-role">Startup Founder, Mumbai</div>
-          </div>
+          <div class="t-avatar">S</div>
+          <div><div class="t-name">Sneha Kapoor</div><div class="t-role">Startup Founder, Mumbai</div></div>
         </div>
       </div>
-      <div class="testi-card fade-up">
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">"Been using their GST return filing plan for 2 years. Never missed a deadline. The monthly plan is a bargain for the quality of service you get."</p>
+      <div class="testi anim">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Using their GST return plan for 2 years. Never missed a deadline once. The monthly plan is a bargain for the quality of CA service you receive."</p>
         <div class="testi-author">
-          <div class="author-avatar">V</div>
-          <div>
-            <div class="author-name">Vijay Patel</div>
-            <div class="author-role">Trader, Ahmedabad</div>
-          </div>
+          <div class="t-avatar">V</div>
+          <div><div class="t-name">Vijay Patel</div><div class="t-role">Trader, Ahmedabad</div></div>
         </div>
       </div>
-      <div class="testi-card fade-up">
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">"Switched from a local CA to TaxPro. The price is half and the service is ten times faster. Everything is handled online with complete transparency."</p>
+      <div class="testi anim">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Switched from a local CA to TaxPro. Half the price, ten times faster. Everything is online, transparent, and my CA is always a WhatsApp away."</p>
         <div class="testi-author">
-          <div class="author-avatar">N</div>
-          <div>
-            <div class="author-name">Nisha Reddy</div>
-            <div class="author-role">Doctor, Hyderabad</div>
-          </div>
+          <div class="t-avatar">N</div>
+          <div><div class="t-name">Nisha Reddy</div><div class="t-role">Doctor, Hyderabad</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq" id="faq">
+<!-- ═══════ FAQ ═══════ -->
+<section class="section faq-sec" id="faq">
   <div class="container">
     <div class="faq-inner">
-      <div>
-        <div class="section-label">FAQ</div>
-        <h2 class="section-title">Common <span>Questions</span> Answered</h2>
-        <p class="section-sub">Everything you need to know before getting started.</p>
-        <div style="margin-top:32px">
-          <a class="btn btn-primary" href="tel:+919876543210">📞 Still Have Questions?</a>
+
+      <div class="anim from-left">
+        <div class="label-pill">FAQ</div>
+        <h2 class="h2">Common <em class="accent">Questions</em> Answered</h2>
+        <p class="lead" style="margin-top:10px">Everything you need before getting started with us.</p>
+        <div class="faq-left-btns">
+          <a class="btn btn-purple" href="tel:+919876543210" style="width:fit-content;font-size:14px;padding:12px 24px">📞 Still Have Questions?</a>
+          <a class="btn btn-ghost"  href="https://wa.me/919876543210" target="_blank" style="width:fit-content;font-size:14px;padding:12px 24px">💬 WhatsApp Us</a>
         </div>
       </div>
-      <div class="faq-items">
+
+      <div class="faq-list anim">
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            How do I get started with filing my ITR?
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">Simply call us or WhatsApp, share your Form 16 / bank statements / income details, and our CA will handle the rest. Filing is completed within 24–48 hours.</div>
+          <div class="fq" onclick="faqToggle(this)">How do I start filing my ITR?<span class="fq-icon">+</span></div>
+          <div class="fa">Call or WhatsApp us, share your Form 16 or income details, and our CA handles the rest. Filing is done in 24–48 hours with acknowledgment sent directly to you.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Is my personal and financial data safe with you?
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">Absolutely. All data is shared only with your assigned CA, stored on encrypted servers, and never shared with third parties. We follow strict data confidentiality protocols.</div>
+          <div class="fq" onclick="faqToggle(this)">Is my financial data safe with you?<span class="fq-icon">+</span></div>
+          <div class="fa">Absolutely. Your data is shared only with your assigned CA, stored on encrypted servers, and never sold or shared with any third party under any circumstance.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            What documents do I need for GST registration?
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">PAN, Aadhaar, bank account details, business address proof, and a passport-size photo. Our CA will guide you through the exact checklist based on your business type.</div>
+          <div class="fq" onclick="faqToggle(this)">What documents do I need for GST registration?<span class="fq-icon">+</span></div>
+          <div class="fa">PAN, Aadhaar, bank account details, business address proof, and a passport photo. Your CA will send a precise checklist based on your business type after a quick call.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Do you handle notice replies for previous years?
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">Yes. We handle notices for any assessment year, including older ones. Our senior CAs have resolved hundreds of 143(1), 148, and show-cause notices successfully.</div>
+          <div class="fq" onclick="faqToggle(this)">Can you handle notices for previous years?<span class="fq-icon">+</span></div>
+          <div class="fa">Yes. We handle notices for any assessment year. Our senior CAs have resolved hundreds of 143(1), 148, and show-cause notices across all types and years.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            What if I'm an NRI — can I still use your services?
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">Yes! We serve NRIs across the globe for Indian income tax filing, DTAA compliance, and repatriation of funds. Everything is handled 100% online.</div>
+          <div class="fq" onclick="faqToggle(this)">I'm an NRI — can I use your services?<span class="fq-icon">+</span></div>
+          <div class="fa">Absolutely. We serve NRIs globally for Indian income tax filing, DTAA benefits, and repatriation. Everything is handled 100% online with no physical presence needed.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            How do I pay? Are online payments accepted?
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">We accept UPI, Net Banking, NEFT/IMPS, and cards. Payment is made only after you're fully satisfied with the service quote and scope. No advance required for consultations.</div>
+          <div class="fq" onclick="faqToggle(this)">How do I pay? Is online payment accepted?<span class="fq-icon">+</span></div>
+          <div class="fa">We accept UPI, Net Banking, NEFT/IMPS, and cards. No advance for consultations — you pay only after agreeing on the scope and quote with your CA.</div>
+        </div>
+        <div class="faq-item">
+          <div class="fq" onclick="faqToggle(this)">What if you miss a filing deadline?<span class="fq-icon">+</span></div>
+          <div class="fa">If we miss a deadline due to our error, we pay the late fee — not you. This commitment is part of our GST return filing plan and reflects our confidence in our process.</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
+<!-- ═══════ CTA ═══════ -->
+<section class="cta-sec">
   <div class="container">
-    <div class="cta-inner fade-up">
-      <h2>Ready to Become <em>Fully Tax Compliant?</em></h2>
-      <p class="cta-sub">Join 10,000+ satisfied clients. Get expert CA help starting at just ₹499.</p>
-      <div class="cta-buttons">
-        <a class="btn btn-gold" href="tel:+919876543210" style="font-size:16px;padding:16px 36px">📞 Call a CA Now</a>
-        <a class="btn btn-outline" href="https://wa.me/919876543210" target="_blank" style="color:#fff;border-color:rgba(255,255,255,.35);font-size:16px;padding:16px 36px">💬 WhatsApp Us</a>
+    <div class="cta-inner anim">
+      <div class="label-pill">Get Started Today</div>
+      <h2 class="h2">Ready to Become<br><em style="color:var(--purple-lite);font-style:italic">Fully Tax Compliant?</em></h2>
+      <p class="lead">Join 10,000+ satisfied clients. Expert CA help starting at just ₹499.</p>
+
+      <div class="cta-btns">
+        <a class="btn btn-orange" href="tel:+919876543210" style="font-size:15px;padding:15px 32px">📞 Call a CA Now</a>
+        <a class="btn btn-dark"   href="https://wa.me/919876543210" target="_blank" style="font-size:15px;padding:15px 32px">💬 WhatsApp Us</a>
       </div>
-      <div class="contact-strip">
-        <div class="contact-item">
-          <div class="contact-icon">📞</div>
-          <div>
-            <span>Call Us Directly</span>
-            <strong>+91 98765 43210</strong>
-          </div>
+
+      <div class="cta-contacts">
+        <div class="cc">
+          <div class="cc-icon">📞</div>
+          <div><span>Call Us</span><strong>+91 98765 43210</strong></div>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">✉️</div>
-          <div>
-            <span>Email Support</span>
-            <strong>info@taxproindia.com</strong>
-          </div>
+        <div class="cc">
+          <div class="cc-icon">✉️</div>
+          <div><span>Email</span><strong>info@taxproindia.com</strong></div>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">⏰</div>
-          <div>
-            <span>Working Hours</span>
-            <strong>Mon–Sat, 9am–8pm</strong>
-          </div>
+        <div class="cc">
+          <div class="cc-icon">⏰</div>
+          <div><span>Working Hours</span><strong>Mon–Sat, 9am–8pm</strong></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══════ FOOTER ═══════ -->
 <footer>
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
+    <div class="foot-grid">
+
+      <div class="foot-brand">
         <a class="logo" href="#">
-          <div class="logo-icon">⚖️</div>
-          <div class="logo-text" style="margin-left:10px">
-            <strong style="color:#fff">TaxPro India</strong>
-            <span style="color:rgba(255,255,255,.4)">Chartered Accountants</span>
-          </div>
+          <div class="logo-mark">⚖</div>
+          <div class="logo-text" style="color:#fff">Tax<span>Pro</span></div>
         </a>
-        <p>India's trusted online CA firm offering affordable tax filing, GST, and company registration services with expert Chartered Accountants.</p>
-        <div class="footer-socials">
-          <a class="social-btn" href="#" title="Facebook">f</a>
-          <a class="social-btn" href="#" title="Twitter">𝕏</a>
-          <a class="social-btn" href="#" title="LinkedIn">in</a>
-          <a class="social-btn" href="#" title="Instagram">ig</a>
-          <a class="social-btn" href="#" title="YouTube">▶</a>
+        <p>Empowering the next generation of taxpayers and businesses with seamless legal and financial infrastructure across India.</p>
+        <div class="foot-socials">
+          <a class="fsoc" href="#" title="Facebook">f</a>
+          <a class="fsoc" href="#" title="Twitter">𝕏</a>
+          <a class="fsoc" href="#" title="LinkedIn">in</a>
+          <a class="fsoc" href="#" title="Instagram">ig</a>
+          <a class="fsoc" href="#" title="YouTube">▶</a>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#services">Income Tax Filing</a></li>
-          <li><a href="#services">GST Registration</a></li>
-          <li><a href="#services">GST Return Filing</a></li>
-          <li><a href="#services">IT Notice Reply</a></li>
-          <li><a href="#services">GST Notice Reply</a></li>
-          <li><a href="#services">Company Registration</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
+
+      <div class="foot-col">
         <h4>Company</h4>
         <ul>
           <li><a href="#">About Us</a></li>
-          <li><a href="#">Our Team</a></li>
-          <li><a href="#">Blog</a></li>
+          <li><a href="#">Our CA Team</a></li>
           <li><a href="#">Careers</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#">Blog</a></li>
           <li><a href="#">Partner With Us</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
+
+      <div class="foot-col">
+        <h4>Support</h4>
         <ul>
+          <li><a href="#">Contact Support</a></li>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Terms of Service</a></li>
           <li><a href="#">Refund Policy</a></li>
-          <li><a href="#">Disclaimer</a></li>
           <li><a href="#">Sitemap</a></li>
         </ul>
       </div>
+
+      <div class="foot-col foot-nl">
+        <h4>Join Newsletter</h4>
+        <p>Get tax tips, deadline reminders, and guides every month — free.</p>
+        <div class="nl-form">
+          <input type="email" placeholder="Email address" id="nlEmail"/>
+          <button onclick="subscribe()" title="Subscribe">→</button>
+        </div>
+        <div id="nlMsg" style="font-size:12.5px;color:var(--purple-lite);margin-top:9px;display:none">✓ Subscribed! Check your inbox.</div>
+      </div>
+
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 TaxPro India. All rights reserved. ICAI Registered | GST Compliant</p>
-      <p>Made with ♥ for Indian taxpayers | <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+
+    <div class="foot-bottom">
+      <p>© 2026 TaxPro India. All rights reserved. ICAI Registered | Licensed Tax Practitioners.</p>
+      <div class="foot-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sitemap</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<!-- WhatsApp Float -->
-<a class="whatsapp-float" href="https://wa.me/919876543210" target="_blank" title="Chat on WhatsApp">💬</a>
+<!-- WhatsApp float -->
+<a class="wa" href="https://wa.me/919876543210" target="_blank" title="Chat on WhatsApp">💬</a>
 
-<!-- SCRIPTS -->
+<!-- ═══════ JS ═══════ -->
 <script>
-  // Navbar scroll shadow
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 20);
+/* Navbar shadow on scroll */
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+/* Mobile menu */
+function toggleMenu() {
+  document.getElementById('mobMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobMenu').classList.remove('open');
+}
+
+/* Tab switching */
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+  /* Re-trigger animations for newly shown cards */
+  document.querySelectorAll('#tab-' + id + ' .anim').forEach((el, i) => {
+    el.classList.remove('in');
+    setTimeout(() => el.classList.add('in'), i * 70);
   });
+}
 
-  // Mobile menu
-  function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('open');
-  }
+/* FAQ accordion */
+function faqToggle(el) {
+  const item = el.parentElement;
+  const ans  = item.querySelector('.fa');
+  const open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.fa').classList.remove('open');
+  });
+  if (!open) { item.classList.add('open'); ans.classList.add('open'); }
+}
 
-  // FAQ accordion
-  function toggleFaq(el) {
-    const item = el.parentElement;
-    const answer = item.querySelector('.faq-answer');
-    const isOpen = item.classList.contains('open');
-    // Close all
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').classList.remove('open');
-    });
-    if (!isOpen) {
-      item.classList.add('open');
-      answer.classList.add('open');
+/* Phone helper */
+function call() { window.location.href = 'tel:+919876543210'; }
+
+/* Newsletter */
+function subscribe() {
+  const el = document.getElementById('nlEmail');
+  if (!el.value || !el.value.includes('@')) return;
+  document.getElementById('nlMsg').style.display = 'block';
+  el.value = '';
+}
+
+/* Scroll-in animation observer */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const siblings = [...(entry.target.parentElement?.children || [])];
+      const i = siblings.indexOf(entry.target);
+      setTimeout(() => entry.target.classList.add('in'), i * 80);
+      observer.unobserve(entry.target);
     }
-  }
-
-  // Scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, Array.from(entry.target.parentElement?.children || []).indexOf(entry.target) * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // Smooth active nav link highlighting
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      if (window.scrollY >= section.offsetTop - 120) current = section.getAttribute('id');
-    });
-    navLinks.forEach(link => {
-      link.style.color = link.getAttribute('href') === '#' + current ? 'var(--teal)' : '';
-    });
   });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+
+/* Nav link active state on scroll */
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 150) current = s.id;
+  });
+  document.querySelectorAll('.nav-link').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}, { passive: true });
 </script>
 </body>
 </html>
